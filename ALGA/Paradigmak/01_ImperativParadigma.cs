@@ -43,7 +43,7 @@ namespace OE.ALGA.Paradigmak
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public virtual IEnumerator<T> GetEnumerator()
         {
             return new FeladatTaroloBejaro<T>(tarolo, n);
         }
@@ -70,17 +70,11 @@ namespace OE.ALGA.Paradigmak
         }
     }
 
-    public class FeladatTaroloBejaro<T> : IEnumerator<T> where T : IVegrehajthato
+    public class FeladatTaroloBejaro<T> : IEnumerator<T>
     {
         private T[] tarolo;
         private int n;
         private int aktualisIndex = -1;
-
-        public FeladatTaroloBejaro(T[] tarolo, int n)
-        {
-            this.tarolo = tarolo;
-            this.n = n;
-        }
 
         public T Current
         {
@@ -90,6 +84,12 @@ namespace OE.ALGA.Paradigmak
                     throw new InvalidOperationException();
                 return tarolo[aktualisIndex];
             }
+        }
+
+        public FeladatTaroloBejaro(T[] tarolo, int n)
+        {
+            this.tarolo = tarolo;
+            this.n = n;
         }
 
         object IEnumerator.Current => Current;
