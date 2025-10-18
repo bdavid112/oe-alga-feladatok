@@ -81,16 +81,9 @@ namespace OE.ALGA.Adatszerkezetek
                     p.jobb = ReszfabolTorol(p.jobb, ertek);
                     break;
                 case 0:
-                    if (p.bal == null)
-                    {
-                        p = p.jobb;
-                    }
-                    else if (p.jobb == null)
-                    {
-                        p = p.bal;
-                    }
+                    if (p.bal == null) p = p.jobb;
+                    else if (p.jobb == null) p = p.bal;
                     else p.bal = KetGyerekesTorles(p.bal, p);
-
                     break;
             }
 
@@ -99,10 +92,7 @@ namespace OE.ALGA.Adatszerkezetek
 
         private static FaElem<T> KetGyerekesTorles(FaElem<T> r, FaElem<T> e)
         {
-            if (r.jobb != null)
-            {
-                r.jobb = KetGyerekesTorles(r.jobb, e);
-            }
+            if (r.jobb != null) r.jobb = KetGyerekesTorles(r.jobb, e);
             else
             {
                 e.tart = r.tart;
