@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace OE.ALGA.Optimalizalas
 {
@@ -113,7 +112,7 @@ namespace OE.ALGA.Optimalizalas
                 }
                 else if (josag(e) + fb(szint, e) > josag(o)) BackTrack(szint + 1, e, ref van, o);
 
-                e[szint] = default;
+                e[szint] = default!;
             }
         }
     }
