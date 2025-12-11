@@ -69,8 +69,7 @@ namespace OE.ALGA.Adatszerkezetek
         public T Kiolvas(K kulcs)
         {
             var letezoElem = KulcsKeres(kulcs);
-            if (letezoElem == null) throw new HibasKulcsKivetel();
-            return letezoElem.tart;
+            return letezoElem == null ? throw new HibasKulcsKivetel() : letezoElem.tart;
         }
 
         public void Torol(K kulcs)
